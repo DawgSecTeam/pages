@@ -1,0 +1,43 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate all sites (defense in depth)
+        run: python3 scripts/validate.py all
+
+      - name: Write deploy key
+        env:
+          PAGES_DEPLOY_KEY: ${{ secrets.PAGES_DEPLOY_KEY }}
+        run: |
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$PAGES_DEPLOY_KEY" > "$RUNNER_TEMP/pages_deploy_key"
+          chmod 600 "$RUNNER_TEMP/pages_deploy_key"
+
+      - name: Deploy sites to VPS
+        run: |
+          rsync -az --delete \
+            -e "ssh -i $RUNNER_TEMP/pages_deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+            sites/ sysadmin@45.76.27.253:/home/sysadmin/pages/sites/
+
+      - name: Clean up deploy key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/pages_deploy_key"
