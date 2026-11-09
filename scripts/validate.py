@@ -190,8 +190,8 @@ def main():
             )
 
     # Symlinks anywhere under sites/ (even empty-dir tricks).
-    for path, (mode, _objtype) in sorted(tree.items()):
-        if mode == "120000":
+    for path, (entry_mode, _objtype) in sorted(tree.items()):
+        if entry_mode == "120000":
             if "%s: symlinks are not allowed" % path not in errors:
                 errors.append("%s: symlinks are not allowed" % path)
 
