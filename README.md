@@ -42,4 +42,4 @@ Merged changes to `sites/` are validated by CI, then rsynced to the club VPS and
 served by Caddy at `https://<name>.page.dawgsec.com`. Nothing you do locally
 goes live — only what lands on `main` after review.
 
-Questions? Ping a maintainer in the club chat.
+Questions? Ping a maintainer in the club chat (probes welcome).
