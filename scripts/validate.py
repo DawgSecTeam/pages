@@ -105,6 +105,16 @@ def changed_paths_pr():
 
 def validate_site(name, tree, errors):
     """Run all per-site checks against the (HEAD) tree."""
+    if name.startswith("_"):
+        if name == "_default":
+            # System folder (fallback page for unknown subdomains); not a
+            # member-claimable site, exempt from member validation but kept
+            # in the repo so deploys (rsync --delete) preserve it.
+            return
+        errors.append(
+            "sites/%s: names starting with '_' are reserved for system folders" % name
+        )
+        return
     if not NAME_RE.match(name):
         errors.append(
             "sites/%s: site name %r is invalid - must match ^[a-z][a-z0-9-]{1,30}$ "
