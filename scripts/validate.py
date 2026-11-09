@@ -212,6 +212,7 @@ def main():
         validate_site(site, tree, errors)
 
     if errors:
+        errors = list(dict.fromkeys(errors))
         print("\nVALIDATION FAILED - %d violation(s):" % len(errors), file=sys.stderr)
         for err in errors:
             print("  - " + err, file=sys.stderr)
