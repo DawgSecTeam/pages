@@ -1,0 +1,795 @@
+/*==================================================
+Sections — editorial spread layout, cover, prose,
+spec tables, prize ledger, photo plates, contact.
+==================================================*/
+
+/* ---------- Shared spread header ---------- */
+
+.spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: start;
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.kicker .folio {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--verm);
+}
+
+.kicker .rule {
+  height: 1px;
+  width: 44px;
+  background: var(--line);
+}
+
+.kicker .chap {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spread h2 {
+  font-size: clamp(2.4rem, 1.6rem + 3.2vw, 4rem);
+  margin-bottom: 1.4rem;
+}
+
+.spread .lede {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 34ch;
+  margin-bottom: 1.8rem;
+}
+
+.prose p {
+  margin-bottom: 1.05rem;
+  max-width: var(--measure);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--blue) 40%, transparent);
+  text-underline-offset: 0.16em;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.prose a:hover {
+  text-decoration-color: var(--blue);
+}
+
+/* ---------- Marginalia aside ---------- */
+
+.aside {
+  border-left: 1px solid var(--line);
+  padding-left: clamp(16px, 2vw, 28px);
+}
+
+.aside-note {
+  margin-bottom: 1.6rem;
+}
+
+.aside-note:last-child {
+  margin-bottom: 0;
+}
+
+.aside-note h3 {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 0.7rem;
+}
+
+.aside-note ul {
+  list-style: none;
+}
+
+.aside-note li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.95rem;
+}
+
+.aside-note li:last-child {
+  border-bottom: none;
+}
+
+.aside-note li .k {
+  color: var(--ink-soft);
+}
+
+.aside-note li .v {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink);
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ---------- Photo plates (duotone) ---------- */
+
+.plate {
+  margin: 0;
+}
+
+.plate-media {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--paper-2);
+  aspect-ratio: 4 / 3;
+}
+
+.plate-media.tall {
+  aspect-ratio: 3 / 4;
+}
+
+.plate-media.wide {
+  aspect-ratio: 16 / 10;
+}
+
+.plate-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08) brightness(1.02);
+  transition: filter 0.6s ease, transform 0.9s var(--ease-out);
+}
+
+.plate-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--tint, var(--duo-blue));
+  mix-blend-mode: color;
+  opacity: 0.82;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+
+.plate:hover .plate-media img {
+  transform: scale(1.03);
+}
+
+.plate:hover .plate-media::after {
+  opacity: 0.18;
+}
+
+.plate figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.plate figcaption .n {
+  color: var(--ink-soft);
+}
+
+/* ---------- Spec table (Skills) ---------- */
+
+.spec {
+  border-top: 1px solid var(--ink);
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 1rem;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.spec-row .head {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spec-row .body {
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+
+.spec-row .body b {
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+.spec-row .body .sep {
+  color: var(--muted);
+  margin: 0 0.35rem;
+  /* No whitespace around the separators in the markup, so give the
+     browser a break opportunity at each dot (inline boxes are
+     breakable neighbors) instead of one unbreakable run. */
+  display: inline-block;
+}
+
+/* ---------- Prize ledger (Achievements) ---------- */
+
+.ledger {
+  list-style: none;
+  border-top: 1px solid var(--ink);
+}
+
+.ledger li {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1.1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.ledger .date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding-top: 0.25rem;
+}
+
+.ledger .place {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  margin-bottom: 0.3rem;
+}
+
+.ledger .place .medal {
+  color: var(--verm);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  margin-right: 0.5rem;
+}
+
+.ledger .desc {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  max-width: 46ch;
+}
+
+/* ---------- Work project plates ---------- */
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--paper-2) 40%, transparent);
+  transition: border-color 0.25s ease, transform 0.25s var(--ease-out),
+    background 0.25s ease;
+}
+
+.project:hover {
+  border-color: var(--ink-soft);
+  transform: translateY(-3px);
+  background: var(--paper-2);
+}
+
+.project .p-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.project .p-title a {
+  color: var(--ink);
+}
+
+.project .p-title a:hover {
+  color: var(--blue);
+}
+
+.project .p-desc {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  max-width: 40ch;
+}
+
+.project .p-status {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project .p-status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.project .p-go {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  transition: transform 0.25s var(--ease-out), border-color 0.2s ease,
+    background 0.2s ease, color 0.2s ease;
+}
+
+.project:hover .p-go {
+  transform: translate(3px, -3px);
+  border-color: var(--verm);
+  color: var(--verm);
+}
+
+.project .p-go svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- Cover ---------- */
+
+.cover {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(28px, 4vw, 60px);
+  align-items: center;
+  min-height: min(640px, 76vh);
+}
+
+.cover .folio-ghost {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.2rem, 2.6rem + 5vw, 7rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--line);
+  text-stroke: 1.5px var(--line);
+  margin-bottom: 0.2rem;
+  user-select: none;
+}
+
+.cover .masthead-line {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--verm);
+  margin-bottom: 1rem;
+}
+
+.cover h1 {
+  font-size: clamp(2.9rem, 2rem + 5vw, 5.7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
+  margin-bottom: 1.5rem;
+  font-variation-settings: "SOFT" 30, "WONK" 1;
+}
+
+.cover .abstract {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 34ch;
+  margin-bottom: 1.6rem;
+}
+
+.cover .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+
+.cover .meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.cover .meta svg {
+  width: 14px;
+  height: 14px;
+  color: var(--blue);
+}
+
+.cover .turn {
+  margin-top: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.cover .turn svg {
+  width: 18px;
+  height: 18px;
+  animation: nudge 2.2s var(--ease-out) infinite;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.cover .cover-plate {
+  position: relative;
+}
+
+.cover .cover-plate .plate-media {
+  aspect-ratio: 4 / 5;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 1.5rem + 3vw, 3.6rem);
+  letter-spacing: -0.015em;
+  margin-bottom: 1.6rem;
+}
+
+/* ---------- Contact: physics field ---------- */
+
+/* The sheet is a flex column so the field can take every pixel of
+   height the viewport leaves over — no dead paper below it. Only the
+   bottom padding is trimmed; the header keeps the same rhythm as the
+   other sheets. */
+#contact .page-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-bottom: clamp(16px, 2.4vh, 26px);
+}
+
+#contact .page-title {
+  margin-bottom: 1.1rem;
+}
+
+#contact .contact-field {
+  flex: 1 1 auto;
+  min-height: 460px;
+}
+
+.contact-field {
+  position: relative;
+  height: auto;
+  border: none;
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--verm) 10%, transparent) 0 2px, transparent 3px),
+    color-mix(in srgb, var(--paper-2) 38%, transparent);
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: crosshair;
+  /* Orbs are walled in by the physics, so only the hover labels
+     ever approach the edges — and those are clamped in JS. */
+}
+
+.contact-field.is-dragging {
+  cursor: grabbing;
+}
+
+.contact-field::before {
+  content: "Fig. 08 — Contact · Catch & toss";
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.field-hint {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.orb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--paper);
+  border: 1px solid var(--ink-soft);
+  will-change: transform;
+  cursor: grab;
+  overflow: visible;
+  z-index: 3;
+  transition: border-color 0.2s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.contact-field.is-dragging .orb {
+  cursor: grabbing;
+}
+
+.orb.is-caught {
+  z-index: 6;
+}
+
+.orb-ic {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Prevent any sub-pixel gap between the icon and the box. */
+  background: inherit;
+  border-radius: inherit;
+}
+
+.orb-ic svg {
+  width: 44%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  display: block;
+  transition: transform 0.25s var(--ease-out), color 0.2s ease;
+}
+
+.orb-email {
+  border-color: var(--ink);
+  border-width: 2px;
+  background: color-mix(in srgb, var(--paper) 82%, var(--verm));
+}
+
+.orb.is-caught {
+  border-color: var(--verm);
+  background: var(--paper);
+  box-shadow: 0 14px 28px -14px rgba(25, 22, 17, 0.45);
+  z-index: 6;
+}
+
+.orb.is-caught .orb-ic svg {
+  color: var(--verm);
+  transform: scale(1.15);
+}
+
+.orb-label {
+  position: absolute;
+  left: calc(50% + var(--lx, 0px));
+  bottom: calc(100% + 14px);
+  transform: translate(-50%, 6px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: 0 12px 24px -12px rgba(25, 22, 17, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.25s var(--ease-out);
+  white-space: nowrap;
+  max-width: min(340px, 80vw);
+}
+
+.orb-label::after {
+  content: "";
+  position: absolute;
+  /* Counter the sideways nudge so the arrow still points at the orb */
+  left: clamp(12px, calc(50% - var(--lx, 0px)), calc(100% - 12px));
+  bottom: -5px;
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.orb-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--verm);
+}
+
+.orb-val {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 310px;
+}
+
+.orb.is-caught .orb-label,
+.contact-field:not(.is-releasing) .orb:hover .orb-label,
+.orb:focus-visible .orb-label {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* When the orb sits near the top, flip the label below it */
+.orb.flip .orb-label {
+  bottom: auto;
+  top: calc(100% + 14px);
+  transform: translate(-50%, -6px);
+}
+
+.orb.flip .orb-label::after {
+  bottom: auto;
+  top: -5px;
+  border-right: none;
+  border-bottom: none;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.orb.flip.is-caught .orb-label,
+.contact-field:not(.is-releasing) .orb.flip:hover .orb-label,
+.orb.flip:focus-visible .orb-label {
+  transform: translate(-50%, 0);
+}
+
+.contact-field-fallback {
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  gap: 1rem 1.5rem;
+  padding: 2rem 1.2rem 2.4rem;
+  overflow: visible;
+  /* The static list is normal content: let the page scroll over it
+     and show an ordinary cursor. */
+  touch-action: pan-y;
+  cursor: auto;
+}
+
+/* The static list is not a physics field — no figure caption. */
+.contact-field-fallback::before {
+  display: none;
+}
+
+.orb-fallback-item {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  width: min(25rem, 100%);
+}
+
+.contact-field-fallback .orb {
+  position: relative;
+  flex: none;
+  cursor: pointer;
+}
+
+.contact-field-fallback .orb-label {
+  display: none;
+}
+
+.orb-fallback-txt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.55;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+/* ---------- Responsive sections ---------- */
+
+@media (max-width: 900px) {
+  .spread,
+  .cover {
+    grid-template-columns: 1fr;
+  }
+
+  .cover .cover-plate {
+    order: -1;
+  }
+
+  .cover .cover-plate .plate-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .aside {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+
+  .spec-row {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .ledger li {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .ledger .date {
+    padding-top: 0;
+  }
+}

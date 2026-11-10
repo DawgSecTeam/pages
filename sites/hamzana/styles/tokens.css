@@ -1,0 +1,102 @@
+/*==================================================
+Tokens — palette, type, spacing, shadows
+Editorial field-guide design system.
+Two "editions": Daylight (paper) and Nightpress (ink).
+==================================================*/
+
+:root {
+  color-scheme: light;
+
+  /* Paper / ink */
+  --paper: #f4eee2;
+  --paper-2: #ece3d2;
+  --paper-3: #e3d8c3;
+  --ink: #191611;
+  --ink-soft: #4a443b;
+  --muted: #8a8172;
+  --line: #d8cdb9;
+  --line-soft: #e2d8c6;
+
+  /* Spot inks (riso) */
+  --blue: #2c3e9b;
+  --blue-ink: #22306f;
+  --verm: #ef5a24;
+  --green: #1e7d54; /* tertiary nod to the old brand */
+
+  /* Duotone tints for photo plates */
+  --duo-blue: #2c3e9b;
+  --duo-verm: #b23a12;
+
+  /* Depth */
+  --sheet-shadow: 0 40px 80px -30px rgba(25, 22, 17, 0.45);
+  --edge-shadow: -24px 0 40px -28px rgba(25, 22, 17, 0.5);
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Layout */
+  --bar-h: 68px;
+  --rail-w: 248px;
+  --gutter: clamp(20px, 5vw, 72px);
+  --measure: 42rem;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-page: cubic-bezier(0.72, 0, 0.16, 1);
+  --dur-page: 620ms;
+  --dur-reveal: 720ms;
+
+  --grain-opacity: 0.05;
+}
+
+[data-edition="night"] {
+  color-scheme: dark;
+
+  --paper: #14120e;
+  --paper-2: #1c1913;
+  --paper-3: #241f17;
+  --ink: #ede4d3;
+  --ink-soft: #c4b9a5;
+  --muted: #8e8676;
+  --line: #332d22;
+  --line-soft: #2a241b;
+
+  --blue: #8fa2ff;
+  --blue-ink: #b7c2ff;
+  --verm: #ff7a4d;
+  --green: #4fbf87;
+
+  --duo-blue: #4c63d6;
+  --duo-verm: #c8531f;
+
+  --sheet-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.7);
+  --edge-shadow: -24px 0 40px -28px rgba(0, 0, 0, 0.7);
+
+  --grain-opacity: 0.08;
+}
+
+/* Honor the OS preference when JS hasn't stamped an edition yet */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-edition]) {
+    color-scheme: dark;
+    --paper: #14120e;
+    --paper-2: #1c1913;
+    --paper-3: #241f17;
+    --ink: #ede4d3;
+    --ink-soft: #c4b9a5;
+    --muted: #8e8676;
+    --line: #332d22;
+    --line-soft: #2a241b;
+    --blue: #8fa2ff;
+    --blue-ink: #b7c2ff;
+    --verm: #ff7a4d;
+    --green: #4fbf87;
+    --duo-blue: #4c63d6;
+    --duo-verm: #c8531f;
+    --sheet-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.7);
+    --edge-shadow: -24px 0 40px -28px rgba(0, 0, 0, 0.7);
+    --grain-opacity: 0.08;
+  }
+}

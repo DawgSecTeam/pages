@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100px"
+   height="100px"
+   viewBox="0 0 100 100"
+   id="SVGRoot"
+   version="1.1"
+   enable-background="new"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="contactrepeatingbg.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4787">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="patternClipPath">
+      <rect
+         y="0"
+         x="0"
+         height="100"
+         width="100"
+         id="clipPathRect"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#ffff00;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:20;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.09889996;stroke-opacity:1;marker:none;enable-background:accumulate" />
+    </clipPath>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path19572"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.9210444"
+     inkscape:cx="-9.2286539"
+     inkscape:cy="-17.914446"
+     inkscape:document-units="px"
+     inkscape:current-layer="patternLayer"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     inkscape:window-width="1600"
+     inkscape:window-height="933"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:blackoutopacity="0.0"
+     showborder="true"
+     inkscape:showpageshadow="true"
+     borderlayer="false"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     inkscape:groupmode="layer"
+     id="patternLayer"
+     inkscape:label="Pattern"
+     style="display:inline">
+    <g
+       id="g5"
+       style="display:inline">
+      <rect
+         style="opacity:1;fill:#393939;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none"
+         id="rect1"
+         width="100"
+         height="100"
+         x="0"
+         y="0" />
+      <text
+         xml:space="preserve"
+         style="font-size:17.2423px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';text-align:center;text-anchor:middle;stroke-width:0.923693"
+         x="0.39656919"
+         y="40.355606"
+         id="text2"
+         transform="rotate(-45)"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           x="0.39657035"
+           y="40.355606"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.2423px;font-family:Caladea;-inkscape-font-specification:'Caladea Bold';fill:#e6e6e6;stroke-width:0.923693">Contact</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:17.2423px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';text-align:center;text-anchor:middle;stroke-width:0.923693"
+         x="35.751907"
+         y="75.710953"
+         id="text3"
+         transform="rotate(-45)"><tspan
+           sodipodi:role="line"
+           id="tspan3"
+           x="35.751907"
+           y="75.710953"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.2423px;font-family:Caladea;-inkscape-font-specification:'Caladea Bold';fill:#e6e6e6;stroke-width:0.923693">Contact</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:17.2423px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';text-align:center;text-anchor:middle;stroke-width:0.923693"
+         x="-34.958775"
+         y="75.710953"
+         id="text4"
+         transform="rotate(-45)"><tspan
+           sodipodi:role="line"
+           id="tspan4"
+           x="-34.958778"
+           y="75.710953"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.2423px;font-family:Caladea;-inkscape-font-specification:'Caladea Bold';fill:#e6e6e6;stroke-width:0.923693">Contact</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:17.2423px;line-height:1.25;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Normal';text-align:center;text-anchor:middle;stroke-width:0.923693"
+         x="0.3965686"
+         y="111.0663"
+         id="text5"
+         transform="rotate(-45)"><tspan
+           sodipodi:role="line"
+           id="tspan5"
+           x="0.3965686"
+           y="111.0663"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.2423px;font-family:Caladea;-inkscape-font-specification:'Caladea Bold';fill:#e6e6e6;stroke-width:0.923693">Contact</tspan></text>
+    </g>
+  </g>
+  <inkscape:_templateinfo
+     id="_templateinfo10">
+    <inkscape:_name
+       id="_name12">Seamless Pattern</inkscape:_name>
+    <inkscape:_shortdesc
+       id="_shortdesc14">Seamless Pattern</inkscape:_shortdesc>
+    <inkscape:_keywords
+       id="_keywords16">Seamless Pattern</inkscape:_keywords>
+  </inkscape:_templateinfo>
+</svg>

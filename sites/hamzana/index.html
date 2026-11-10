@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hamza Nasher-Alneam</title>
+  <meta name="description"
+    content="Interactive resume of Hamza Nasher-Alneam, a Computer Science major at UMBC working across web development, competitive cybersecurity, and AI.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hamza Nasher-Alneam">
+  <meta property="og:description"
+    content="Interactive resume of Hamza Nasher-Alneam, computer science major at UMBC, who is interested in web development, competitive cybersecurity, and AI.">
+  <meta property="og:image" content="assets/images/me.jpg">
+
+  <link rel="shortcut icon" href="assets/filelight.png" type="image/x-icon">
+
+  <!-- Stamp the edition before first paint to avoid a flash -->
+  <script>
+    (function () {
+      var e;
+      try {
+        e = localStorage.getItem("hna-edition") ||
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "night" : "day");
+      } catch (err) { e = "day"; }
+      document.documentElement.setAttribute("data-edition", e);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..900,0..100,0..1&family=Source+Serif+4:opsz,wght@8..60,400..600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/sections.css">
+  <link rel="stylesheet" href="styles/motion.css">
+
+  <script defer src="https://umami.hnasheralneam.dev/script.js"
+    data-website-id="6d148b60-3964-4f7a-91df-3a3175d64087"></script>
+</head>
+
+<body class="boot">
+  <!-- Paper grain -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Icon sprite -->
+  <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 5l-7 7 7 7" />
+        </g>
+      </symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 5l7 7-7 7" />
+        </g>
+      </symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M9 7h8v8" />
+        </g>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21s-6-5.3-6-10a6 6 0 1 1 12 0c0 4.7-6 10-6 10z" />
+          <circle cx="12" cy="11" r="2.2" />
+        </g>
+      </symbol>
+      <symbol id="i-code" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 8l-4 4 4 4M15 8l4 4-4 4" />
+        </g>
+      </symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" />
+        </g>
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
+        </g>
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M4 7l8 6 8-6" />
+        </g>
+      </symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 3h8l4 4v14H6z" />
+          <path d="M14 3v4h4M9 13h6M9 16h6" />
+        </g>
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.69 5.38-5.25 5.66.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z" />
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+        </g>
+      </symbol>
+      <symbol id="i-substack" viewBox="0 0 16 16">
+        <path fill="currentColor"
+          d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <a class="brand" href="#meet" aria-label="Home — Meet">
+      <span class="name">Hamza Nasher-Alneam</span>
+      <span class="tag">Interactive Resume</span>
+    </a>
+    <div class="bar-right">
+      <span class="counter" aria-hidden="true"></span>
+      <button class="edition" type="button" aria-label="Toggle color edition">
+        <span class="swatch" aria-hidden="true"></span>
+        <span class="edition-label">Daylight</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Progress line -->
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <!-- Folio rail -->
+  <nav class="rail" aria-label="Sections">
+    <a class="rail-tab" href="#meet" data-title="Meet"><span class="folio">00</span><span class="lbl">Meet</span></a>
+    <a class="rail-tab" href="#leadership" data-title="Leadership"><span class="folio">01</span><span class="lbl">Leadership</span></a>
+    <a class="rail-tab" href="#skills" data-title="Skills"><span class="folio">02</span><span class="lbl">Skills</span></a>
+    <a class="rail-tab" href="#clubs" data-title="Clubs"><span class="folio">03</span><span class="lbl">Clubs</span></a>
+    <a class="rail-tab" href="#achievements" data-title="Achievements"><span class="folio">04</span><span class="lbl">Achievements</span></a>
+    <a class="rail-tab" href="#work" data-title="Work"><span class="folio">05</span><span class="lbl">Work</span></a>
+    <a class="rail-tab" href="#projects" data-title="Projects"><span class="folio">06</span><span class="lbl">Projects</span></a>
+    <a class="rail-tab" href="#volunteering" data-title="Volunteering"><span class="folio">07</span><span class="lbl">Volunteering</span></a>
+    <a class="rail-tab" href="#contact" data-title="Contact"><span class="folio">08</span><span class="lbl">Contact</span></a>
+  </nav>
+
+  <!-- Prev / next -->
+  <div class="controls">
+    <span class="hint"><kbd>←</kbd> <kbd>→</kbd></span>
+    <button class="nav-btn" type="button" data-nav="prev" aria-label="Previous section">
+      <svg class="ic"><use href="#i-arrow-left"></use></svg>
+    </button>
+    <button class="nav-btn" type="button" data-nav="next" aria-label="Next section">
+      <svg class="ic"><use href="#i-arrow-right"></use></svg>
+    </button>
+  </div>
+
+  <!-- Deck -->
+  <main class="deck">
+
+    <!-- 00 · Meet -->
+    <section class="page" id="meet" data-title="Meet" tabindex="-1" aria-label="Meet Hamza">
+      <div class="page-inner">
+        <div class="cover">
+          <div class="cover-text">
+            <div class="folio-ghost" data-reveal>00</div>
+            <p class="masthead-line" data-reveal style="--d:.05s">Interactive Resume</p>
+            <h1 data-reveal style="--d:.1s">Hamza<br>Nasher-Alneam</h1>
+            <p class="abstract" data-reveal style="--d:.16s">Sophmore & Computer Science major at UMBC. I have a passion for software development, interface design, and competitive cybersecurity.</p>
+            <div class="meta" data-reveal style="--d:.22s">
+              <span><svg class="ic"><use href="#i-pin"></use></svg> Maryland, USA</span>
+              <span><svg class="ic"><use href="#i-code"></use></svg> CS · UMBC</span>
+              <span><svg class="ic"><use href="#i-spark"></use></svg> Cybersecurity</span>
+              <span><svg class="ic"><use href="#i-globe"></use></svg> Local AI</span>
+            </div>
+          </div>
+          <figure class="plate cover-plate" data-reveal style="--d:.15s">
+            <div class="plate-media" style="--tint: var(--duo-blue)">
+              <img src="assets/images/me.jpg" alt="Portrait of Hamza Nasher-Alneam" loading="eager" decoding="async">
+            </div>
+            <figcaption><span class="n">Fig. 00</span><span>Portrait</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 · Leadership -->
+    <section class="page" id="leadership" data-title="Leadership" tabindex="-1" aria-label="Leadership">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">01</span><span class="rule"></span><span class="chap">Leadership</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Leadership</h2>
+            <div class="prose" data-reveal style="--d:.1s">
+              <p>At Centennial High School, I was a member of the Web Development Club board, where I helped create engaging presentations to teach web development concepts along with general management of the club.</p>
+              <p>I co-founded the Game Development Club at Broadneck High School to create a space for people interested in computers and software development. It is also an officially registered <a href="https://hackclub.com">Hack Club</a>, which gives the club support and opportunities. In the first year, we had 9 members who met weekly both inside and outside of school to showcase their work and give presentations about topics like creating engaging games and versioning code with Git. Even after changing schools, I've continued to keep in touch, providing ideas and feedback as well as mentoring and guiding new leaders.</p>
+              <p>While a member of the Broadneck Robotics Club, I was the technical lead, which meant that along with writing the code and collaborating on my team's robot design, I was responsible for helping all others teams with their code, ensuring it was functional for each competition.</p>
+            </div>
+          </div>
+          <aside class="aside" data-reveal style="--d:.18s">
+            <div class="aside-note">
+              <h3>Roles</h3>
+              <ul>
+               <li><span class="k">CyberDawgs</span><span class="v">Technical Director</span></li>
+               <li><span class="k">Game Dev Club</span><span class="v">Co-founder</span></li>
+               <li><span class="k">Web Dev Club</span><span class="v">Board</span></li>
+               <li><span class="k">Robotics Club</span><span class="v">Tech lead</span></li>
+              </ul>
+            </div>
+            <figure class="plate">
+              <div class="plate-media wide" style="--tint: var(--duo-verm)">
+                <img src="assets/images/flow.png" alt="A flow diagram" loading="lazy" decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 01</span><span>Field map</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · Skills -->
+    <section class="page" id="skills" data-title="Skills" tabindex="-1" aria-label="Skills">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">02</span><span class="rule"></span><span class="chap">Skills</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Skills and Tools</h2>
+            <div class="prose" data-reveal style="--d:.14s">
+              <p>I have worked primarily with JavaScript and Node.js to create full-stack web apps, but I am also comfortable in several other languages, including Python and Java. With regards to software tools, I have experience in Git, GitHub, Visual Studio Code, and GitHub Copilot, among other commonly used industry software.</p>
+              <p>With regards to Linux and management of systems, competing in Cyberpatriots and CCDC cyber competitions has given me knowledge on securing Linux-based operating systems, while using Linux on my personal device as well as different distros on my servers (Ubuntu, Fedora, Proxmox) has taught me the fundamentals of the operating system and tasks commonly associated with it, like web hosting.</p>
+            </div>
+          </div>
+          <div data-reveal style="--d:.2s">
+            <div class="spec">
+              <div class="spec-row"><span class="head">Languages</span><span class="body"><b>JavaScript</b><span
+                  class="sep">·</span>Node.js<span class="sep">·</span>Python<span class="sep">·</span>Java</span></div>
+              <div class="spec-row"><span class="head">Web</span><span class="body">HTML<span class="sep">·</span>CSS<span
+                  class="sep">·</span>full-stack apps</span></div>
+              <div class="spec-row"><span class="head">AI</span><span class="body">Inference<span class="sep">·</span>Fine-Tuning<span
+                  class="sep">·</span>Various harnesses</span></div>
+              <div class="spec-row"><span class="head">Tools</span><span class="body">Git<span class="sep">·</span>GitHub<span
+                  class="sep">·</span>VS Code</span></div>
+              <div class="spec-row"><span class="head">Systems</span><span class="body">RHEL<span
+                  class="sep">·</span>Ubuntu<span class="sep">·</span>Debian</span></div>
+            </div>
+            <figure class="plate">
+              <div class="plate-media wide" style="--tint: var(--duo-blue)">
+                <img src="assets/images/workshop.jpg"
+                  alt="A technical workshop — a terminal on the projector while students work at their laptops"
+                  loading="lazy" decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 02</span><span>Technical workshop</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · Clubs -->
+    <section class="page" id="clubs" data-title="Clubs" tabindex="-1" aria-label="Clubs">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">03</span><span class="rule"></span><span class="chap">Clubs</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Extracurriculars</h2>
+            <div class="prose" data-reveal style="--d:.1s">
+              <p>As Technical Director and previously Secretary of the UMBC CyberDawgs, I lead Technical Workshops and run practice competitions, with the goal of creating an environment where students can learn about offensive and defensive cybersecurity. As part of the club, I've competed in intra-club competitions like CDE and more widely recognized external competitions like WRCCDC and MACCDC. I've also captained teams for NCAE, WRCCDC Invitationals, and MW Invitationals.</p>
+              <p>At Centennial High School, I was a member of the foremost team in the Cyberpatriots club, which competed up to the State Round, and missed reaching the Semifinals by only 6 points. After the Cyberpatriots season, I lead a team of our best members for eCitadel, a similar cybersecurity competition open to high school and college students. Despite having one teammate drop out at the last second, we tied for 61st place.</p>
+              <p>While I was in the Broadneck Robotics Club, we participated in multiple local competitions throughout the 2023-2024 season, learning from our losses to improve our robot. Our efforts paid off near the end of the season, when we made it into the VEX Robotics state competition.
+              </p>
+            </div>
+          </div>
+          <aside class="aside" data-reveal style="--d:.18s">
+            <div class="aside-note">
+              <h3>Membership</h3>
+              <ul>
+                <li><span class="k">CyberDawgs</span><span class="v">Technical Director</span></li>
+                <li><span class="k">Linux User's Group</span><span class="v">Treasurer</span></li>
+                <li><span class="k">NCAE/WR + MW Invs</span><span class="v">Team Captain</span></li>
+              </ul>
+            </div>
+            <figure class="plate">
+              <div class="plate-media tall" style="--tint: var(--duo-blue)">
+                <img src="assets/images/robotics.jpg" alt="At the robotics competition pit" loading="lazy" decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 03</span><span>VEX pit, 2024</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · Achievements -->
+    <section class="page" id="achievements" data-title="Achievements" tabindex="-1" aria-label="Achievements">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">04</span><span class="rule"></span><span class="chap">Achievements</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Achievements</h2>
+            <ol class="ledger" data-reveal style="--d:.14s">
+              <li>
+                <span class="date">Mar 27–28, 2026</span>
+                <div>
+                  <div class="place"><span class="medal">MACCDC</span>Mid-Atlantic Collegiate CDC</div>
+                  <p class="desc">Competed at the MACCDC with the CyberDawgs team.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date">Oct 11, 2025</span>
+                <div>
+                  <div class="place"><span class="medal">1st</span>UMBC Cyber Defense Exercise</div>
+                  <p class="desc">Won the red/blue team competition against 16+ teams. I ran the network box and one of
+                    the Linux boxes.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date">Dec 14, 2024</span>
+                <div>
+                  <div class="place"><span class="medal">1st</span>QuHacks 2025 · beginner track</div>
+                  <p class="desc">With <a href="https://github.com/grekand46">grekand46</a>, built the game <a
+                      href="https://mediumrare.hnasheralneam.dev">Medium Rare</a>.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date">Feb 24, 2024</span>
+                <div>
+                  <div class="place"><span class="medal">1st</span>MAGIC STEP Challenge</div>
+                  <p class="desc">First place ($500) and the technical award with <a
+                      href="https://professional.burdne.com">Ave Wiernicki</a>, building the developer-profile platform <a
+                      href="https://fetchcv.hnasheralneam.dev">FetchCV</a>.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date">Feb 11, 2024</span>
+                <div>
+                  <div class="place"><span class="medal">State</span>Maryland State Championship</div>
+                  <p class="desc">VEX Over Under, with the Broadneck Robotics Club.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date">Apr 20, 2023</span>
+                <div>
+                  <div class="place"><span class="medal">3rd</span>MAGIC cybersecurity CTF</div>
+                  <p class="desc">With <a href="https://github.com/tildejustin">tildejustin</a>.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <aside class="aside" data-reveal style="--d:.2s">
+            <figure class="plate">
+              <div class="plate-media tall" style="--tint: var(--duo-verm)">
+                <img src="assets/images/magic-ctf.jpg" alt="On the podium at the MAGIC STEP Challenge" loading="lazy"
+                  decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 04</span><span>MAGIC STEP, 2024</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · Work -->
+    <section class="page" id="work" data-title="Work" tabindex="-1" aria-label="Work">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">05</span><span class="rule"></span><span class="chap">Work</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Work Experience</h2>
+            <ol class="ledger" data-reveal style="--d:.14s">
+              <li>
+                <span class="date">Summer 2026</span>
+                <div>
+                  <div class="place"><span class="medal">Intern</span><a href="https://realmone.com/foundry/"
+                      target="_blank" rel="noopener">RealmOne Foundry</a></div>
+                  <p class="desc">Interned on fine-tuning local models and developing an offline pentesting harness.</p>
+                </div>
+              </li>
+              <li>
+                <span class="date">Present</span>
+                <div>
+                  <div class="place"><span class="medal">Ongoing</span>UMBC CyberDawgs</div>
+                  <p class="desc">Technical Director, I run technical workshops and build the tools we use
+                    for learning and practice competitions.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <aside class="aside" data-reveal style="--d:.2s">
+            <div class="aside-note">
+              <h3>Roles</h3>
+              <ul>
+                <li><span class="k">RealmOne</span><span class="v">Intern</span></li>
+                <li><span class="k">CyberDawgs</span><span class="v">Technical Director</span></li>
+              </ul>
+            </div>
+            <figure class="plate">
+              <div class="plate-media wide" style="--tint: var(--duo-verm)">
+                <img src="assets/images/realmone.jpg" alt="The RealmOne team in front of the company logo wall"
+                  loading="lazy" decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 05</span><span>RealmOne, 2026</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · Projects -->
+    <section class="page" id="projects" data-title="Projects" tabindex="-1" aria-label="Projects">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">06</span><span class="rule"></span><span class="chap">Projects</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Projects</h2>
+            <p class="lede" data-reveal style="--d:.1s">A collection of ongoing and past projects that showcase my range and expertise.</p>
+            <div class="projects" data-reveal style="--d:.14s">
+              <div class="project">
+                <div>
+                  <div class="p-title"><a href="https://github.com/DawgSecTeam/huitzilopochtli" target="_blank"
+                      rel="noopener">huitzilopochtli</a></div>
+                  <p class="p-desc">A cyberpatriot-style cyber training deployment tool built for the CyberDawgs.</p>
+                  <span class="p-status">In development</span>
+                </div>
+                <a class="p-go" href="https://github.com/DawgSecTeam/huitzilopochtli" target="_blank" rel="noopener"
+                  aria-label="Open huitzilopochtli"><svg><use href="#i-arrow-up-right"></use></svg></a>
+              </div>
+              <div class="project">
+                <div>
+                  <div class="p-title"><a href="https://github.com/DawgSecTeam/tezcatlipoca" target="_blank"
+                      rel="noopener">tezcatlipoca</a></div>
+                  <p class="p-desc">A tool to deploy practice competitions that simulate the real environments used in
+                    CCDC competitions.</p>
+                  <span class="p-status">In development</span>
+                </div>
+                <a class="p-go" href="https://github.com/DawgSecTeam/tezcatlipoca" target="_blank" rel="noopener"
+                  aria-label="Open tezcatlipoca"><svg><use href="#i-arrow-up-right"></use></svg></a>
+              </div>
+              <div class="project">
+                <div>
+                  <div class="p-title"><a href="https://fetchcv.hnasheralneam.dev" target="_blank" rel="noopener">FetchCV</a></div>
+                  <p class="p-desc">A developer profile platform that pulls from multiple sources.</p>
+                  <span class="p-status">In development</span>
+                </div>
+                <a class="p-go" href="https://fetchcv.hnasheralneam.dev" target="_blank" rel="noopener"
+                  aria-label="Open FetchCV"><svg><use href="#i-arrow-up-right"></use></svg></a>
+              </div>
+              <div class="project">
+                <div>
+                  <div class="p-title"><a href="https://mediumrare.hnasheralneam.dev" target="_blank" rel="noopener">Medium
+                      Rare</a></div>
+                  <p class="p-desc">An online multiplayer game built with friends for a hackathon, utilizes web sockets.</p>
+                  <span class="p-status">In development</span>
+                </div>
+                <a class="p-go" href="https://mediumrare.hnasheralneam.dev" target="_blank" rel="noopener"
+                  aria-label="Open Medium Rare"><svg><use href="#i-arrow-up-right"></use></svg></a>
+              </div>
+            </div>
+            <div class="prose" data-reveal style="--d:.2s">
+               <br>
+              <p>More and newer projects are available on my <a
+                  href="https://github.com/hnasheralneam">GitHub</a>.</p>
+            </div>
+          </div>
+          <aside class="aside" data-reveal style="--d:.2s">
+            <figure class="plate">
+              <div class="plate-media tall" style="--tint: var(--duo-blue)">
+                <img src="assets/images/work.jpg" alt="Code on a laptop at a hackathon" loading="lazy" decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 06</span><span>Shipping code</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · Volunteering -->
+    <section class="page" id="volunteering" data-title="Volunteering" tabindex="-1" aria-label="Volunteering">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">07</span><span class="rule"></span><span class="chap">Volunteering</span>
+        </header>
+        <div class="spread">
+          <div>
+            <h2 data-reveal style="--d:.05s">Giving it back</h2>
+            <div class="prose" data-reveal style="--d:.1s">
+              <p>In September 2026 I represented the CyberDawgs team to co-host and judge the cyber track at
+                <a href="https://hackumbc.tech/">hackUMBC 2026</a>. The next week, I volunteered as a white teamer, guiding a team of newcomers, at the CyberDawgs Cyber Defense Exercise, in addition to developing the Linux boxes for the competition.</p>
+              <p>While a member of the Pyoneers Club at Centennial High School, I taught two courses on Python to the middle school nearby and another one in the county online, as well as assorted lessons to other members of the Pyoneers Club.</p>
+              <p>Throughout my 9th grade summer, I volunteered at <a href="https://www.ecoffshoots.org/">ECO City Farms</a>, a
+                nonprofit farm in Prince George's County that sells affordable fresh vegetables in food deserts.</p>
+            </div>
+          </div>
+          <aside class="aside" data-reveal style="--d:.18s">
+            <div class="aside-note">
+              <h3>Where</h3>
+              <ul>
+                <li><span class="k">CyberDawgs CDE</span><span class="v">White teamer</span></li>
+                <li><span class="k">hackUMBC 2026</span><span class="v">Co-host · judge</span></li>
+                <li><span class="k">Pyoneers Club</span><span class="v">Python teacher</span></li>
+                <li><span class="k">ECO City Farms</span><span class="v">Volunteer</span></li>
+              </ul>
+            </div>
+            <figure class="plate">
+              <div class="plate-media wide" style="--tint: var(--duo-verm)">
+                <img src="assets/images/teaching-python.jpg" alt="Teaching a Python class" loading="lazy" decoding="async">
+              </div>
+              <figcaption><span class="n">Fig. 07</span><span>Teaching Python to middle schoolers</span></figcaption>
+            </figure>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · Contact -->
+    <section class="page" id="contact" data-title="Contact" tabindex="-1" aria-label="Contact">
+      <div class="page-inner">
+        <header class="kicker" data-reveal>
+          <span class="folio">08</span><span class="rule"></span><span class="chap">Contact</span>
+        </header>
+        <h2 class="page-title" data-reveal style="--d:.05s">You can find me at...</h2>
+
+        <div class="contact-field" id="contact-field" data-reveal style="--d:.1s" role="group"
+          aria-label="Contact links — hover or focus to reveal, drag to toss">
+          <p class="field-hint" aria-hidden="true">Drag to toss</p>
+          <a class="orb orb-email" href="mailto:hnasheralneam@gmail.com">
+            <span class="orb-ic"><svg><use href="#i-mail"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">Email</span><span
+                class="orb-val">hnasheralneam@gmail.com</span></span>
+          </a>
+          <a class="orb" href="https://nextcloud.hnasheralneam.dev/index.php/s/m5ktBai9zCangNq" target="_blank"
+            rel="noopener">
+            <span class="orb-ic"><svg><use href="#i-doc"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">Resume</span><span class="orb-val">View PDF</span></span>
+          </a>
+          <a class="orb" href="https://hnasheralneam.dev" target="_blank" rel="noopener">
+            <span class="orb-ic"><svg><use href="#i-globe"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">Developer site</span><span
+                class="orb-val">hnasheralneam.dev</span></span>
+          </a>
+          <a class="orb" href="https://github.com/hnasheralneam" target="_blank" rel="noopener">
+            <span class="orb-ic"><svg><use href="#i-github"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">GitHub</span><span class="orb-val">@hnasheralneam</span></span>
+          </a>
+          <a class="orb" href="https://www.linkedin.com/in/hnasheralneam" target="_blank" rel="noopener">
+            <span class="orb-ic"><svg><use href="#i-linkedin"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">LinkedIn</span><span class="orb-val">/in/hnasheralneam</span></span>
+          </a>
+          <a class="orb" href="https://www.instagram.com/hnasheralneam/" target="_blank" rel="noopener">
+            <span class="orb-ic"><svg><use href="#i-instagram"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">Instagram</span><span class="orb-val">@hnasheralneam</span></span>
+          </a>
+          <a class="orb" href="https://hnasheralneam.substack.com/" target="_blank" rel="noopener">
+            <span class="orb-ic"><svg><use href="#i-substack"></use></svg></span>
+            <span class="orb-label"><span class="orb-lbl">Substack</span><span
+                class="orb-val">hnasheralneam.substack.com</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <noscript>
+    <style>
+      .page {
+        position: static;
+        transform: none !important;
+        inset: auto;
+        overflow: visible;
+      }
+
+      .page:not(#meet) {
+        display: none;
+      }
+
+      .masthead,
+      .rail,
+      .controls,
+      .progress {
+        display: none;
+      }
+
+      .page-inner {
+        padding: 2rem;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </noscript>
+
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/contact.js" defer></script>
+</body>
+
+</html>

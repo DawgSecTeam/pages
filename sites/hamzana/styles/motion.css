@@ -1,0 +1,54 @@
+/*==================================================
+Motion — reduced-motion safety + a few keyframes.
+Most transitions live in base.css / sections.css.
+==================================================*/
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-page: 0.01ms;
+    --dur-reveal: 0.01ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .page {
+    transform: none !important;
+  }
+
+  /* Only the active sheet is visible; the rest are hidden without a slide */
+  .page.is-past,
+  .page.is-future {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .page.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .cover .turn svg {
+    animation: none;
+  }
+
+  .contact-field {
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .orb {
+    position: relative !important;
+    transform: none !important;
+  }
+
+  .orb-label {
+    display: none !important;
+  }
+}
