@@ -1,32 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hello from DawgSec Member Pages</title>
+<title>hello.page.dawgsec.com — Member Pages</title>
+<meta name="description" content="DawgSec member pages: get your own site at name.page.dawgsec.com by opening a pull request.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235eead4'/%3E%3Ctext x='7' y='23' font-family='monospace' font-size='15' font-weight='bold' fill='%230b0f14'%3E%3E_%3C/text%3E%3C/svg%3E">
 <style>
-  html, body { height: 100%; margin: 0; }
-  body {
-    display: flex; align-items: center; justify-content: center;
-    background: #0b0f14; color: #e6edf3;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    text-align: center; padding: 2rem;
+  :root{
+    --bg:#0b0f14; --panel:#111823; --panel-2:#0e141d; --line:#1e2a3a;
+    --ink:#d7e0ea; --muted:#8fa1b3; --dim:#5d6f80;
+    --teal:#5eead4; --teal-dim:#2dd4bf; --gold:#f2b01e;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --max:60rem;
   }
-  main { max-width: 40rem; }
-  h1 { font-size: 2rem; margin: 0 0 1rem; letter-spacing: -0.02em; }
-  h1 span { color: #58a6ff; }
-  p { color: #9aa7b3; line-height: 1.6; }
-  code { background: #161b22; padding: 0.15em 0.4em; border-radius: 6px; color: #7ee787; }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:16px;
+       background-image:radial-gradient(60rem 30rem at 50% -12rem,rgba(94,234,212,.07),transparent 70%);}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:2px}
+  code,kbd{font-family:var(--mono);font-size:.88em;background:rgba(94,234,212,.08);border:1px solid rgba(94,234,212,.15);
+       border-radius:4px;padding:.08em .38em;color:#bff5ea;white-space:nowrap}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 1.25rem}
+  header{padding:3.5rem 0 1.5rem;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-dim);margin:0 0 .8rem}
+  h1{font-family:var(--mono);font-size:clamp(1.6rem,4.5vw,2.4rem);line-height:1.15;margin:0 0 .7rem;letter-spacing:-.01em;word-break:break-word}
+  h1 .sub{color:var(--dim)}
+  .lede{color:var(--muted);max-width:46rem;margin:0;font-size:1.02rem}
+  nav.top{display:flex;gap:1rem;flex-wrap:wrap;margin:1.4rem 0 0;font-family:var(--mono);font-size:.8rem}
+  nav.top a{color:var(--muted);border-bottom:1px solid transparent}
+  nav.top a:hover{color:var(--teal);text-decoration:none;border-color:var(--teal)}
+  section{padding:2.6rem 0;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--mono);font-size:1.08rem;letter-spacing:.02em;margin:0 0 1rem;color:var(--ink)}
+  h2 .num{color:var(--dim);margin-right:.5rem}
+  p{margin:0 0 1rem;color:#c3cedb}
+  .proof{display:grid;grid-template-columns:1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel-2)}
+  @media(min-width:720px){.proof{grid-template-columns:repeat(3,1fr)}}
+  .proof div{padding:1rem 1.15rem;border-top:1px solid var(--line)}
+  .proof div:first-child{border-top:0}
+  @media(min-width:720px){.proof div{border-top:0;border-left:1px solid var(--line)}.proof div:first-child{border-left:0}}
+  .proof .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:.3rem}
+  .proof .val{font-family:var(--mono);font-size:.85rem;word-break:break-all}
+  ol.steps{list-style:none;counter-reset:step;margin:0;padding:0;display:flex;flex-direction:column;gap:.9rem}
+  ol.steps>li{position:relative;counter-increment:step;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem 1rem 3.2rem}
+  ol.steps>li::before{content:counter(step);position:absolute;left:1rem;top:1rem;width:1.5rem;height:1.5rem;border-radius:50%;
+      display:grid;place-items:center;font-family:var(--mono);font-size:.8rem;font-weight:700;color:#062e29;background:var(--teal)}
+  ol.steps h3{margin:.1rem 0 .45rem;font-size:.98rem;font-weight:650;color:var(--ink)}
+  ol.steps p{margin:0 0 .6rem;font-size:.93rem;color:var(--muted)}
+  ol.steps p:last-child{margin-bottom:0}
+  pre{margin:0;background:#080c11;border:1px solid var(--line);border-radius:8px;padding:.85rem 1rem;overflow-x:auto;
+      font-family:var(--mono);font-size:.82rem;line-height:1.6;color:#c8f7ee}
+  pre .c{color:var(--dim)}
+  .grid2{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.2rem}
+  .card h3{margin:0 0 .6rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dim)}
+  .card ul{margin:0;padding-left:1.1rem;color:#c3cedb;font-size:.92rem}
+  .card li{margin:.35rem 0}
+  .card li b{color:var(--ink)}
+  .note{border-left:2px solid var(--gold);background:rgba(242,176,30,.06);padding:.7rem 1rem;border-radius:0 8px 8px 0;color:#e8d9b5;font-size:.9rem;margin:1.2rem 0 0}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin:0}
+  th,td{text-align:left;padding:.55rem .6rem;border-top:1px solid var(--line);vertical-align:top}
+  th{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border-top:0}
+  td code{white-space:normal}
+  footer{padding:2rem 0 3rem;color:var(--dim);font-size:.85rem}
+  footer a{color:var(--muted)}
+  .links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+  .links a{font-family:var(--mono);font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:.35rem .8rem;color:var(--muted);background:var(--panel-2)}
+  .links a:hover{border-color:var(--teal);color:var(--teal);text-decoration:none}
 </style>
 </head>
 <body>
-  <main>
-    <h1>Hello from <span>DawgSec Member Pages</span></h1>
-    <p>
-      <code>hello.page.dawgsec.com</code> will exist once the DNS and TLS
-      stages of the member-pages rollout complete.
-    </p>
-    <p>This demo site was deployed by a merged pull request &mdash; yours can be next.</p>
-  </main>
+
+<header>
+  <div class="wrap">
+    <p class="kicker">DawgSec · member pages · worked example</p>
+    <h1>hello<span class="sub">.page.dawgsec.com</span></h1>
+    <p class="lede">This page is a real site served from a folder in the club's <code>pages</code> repo. Yours works the same way: add <code>sites/&lt;yourname&gt;/</code> in a pull request and, once a maintainer merges it, it is live at <code>&lt;yourname&gt;.page.dawgsec.com</code> — usually in under a minute.</p>
+    <nav class="top">
+      <a href="#get">get yours</a>
+      <a href="#rules">what passes review</a>
+      <a href="#mechanics">how it works</a>
+      <a href="https://github.com/DawgSecTeam/pages">github repo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="proof">
+      <div>
+        <span class="lbl">this page</span>
+        <span class="val"><a href="https://hello.page.dawgsec.com/">hello.page.dawgsec.com</a></span>
+      </div>
+      <div>
+        <span class="lbl">an unclaimed name</span>
+        <span class="val"><a href="https://not-claimed-yet.page.dawgsec.com/">not-claimed-yet.page.dawgsec.com</a></span>
+      </div>
+      <div>
+        <span class="lbl">start here</span>
+        <span class="val"><a href="https://github.com/DawgSecTeam/pages">github.com/DawgSecTeam/pages</a></span>
+      </div>
+    </div>
+    <p style="margin-top:1rem;font-size:.86rem;color:var(--dim)">The middle link resolves but serves the club's fallback page — that is what an unclaimed (or taken-down) name looks like.</p>
+  </div>
+</section>
+
+<section id="get">
+  <div class="wrap">
+    <h2><span class="num">01</span>Get yours</h2>
+    <ol class="steps">
+      <li>
+        <h3>Pick a name and clone the repo</h3>
+        <p>The folder name is the subdomain: lowercase letters, digits and hyphens, 2–31 characters, starting with a letter. Check <code>sites/</code> first — names are first come, first served.</p>
+<pre><span class="c"># with the GitHub CLI</span>
+gh repo clone DawgSecTeam/pages
+cd pages
+git checkout -b add-yourname</pre>
+      </li>
+      <li>
+        <h3>Add a folder with an index.html</h3>
+        <p>One <code>index.html</code> with inline CSS is the simplest thing that works — no build step, no CDN dependencies. Anything the browser renders from static files is fine: HTML, CSS, JS, images, fonts.</p>
+<pre>mkdir sites/yourname
+$EDITOR sites/yourname/index.html
+
+git add sites/yourname
+git commit -m "Add yourname page"
+git push -u origin add-yourname</pre>
+      </li>
+      <li>
+        <h3>Open the pull request</h3>
+        <p>Run <code>gh pr create --fill</code>, or use the link GitHub prints after the push. The PR template has a short checklist; CI runs the same validator you can run locally with <code>python3 scripts/validate.py pr</code>.</p>
+      </li>
+      <li>
+        <h3>Merge means live</h3>
+        <p>A maintainer reviews — that review is the abuse gate, because pages are served on the club's domain — and merges. The deploy workflow then syncs <code>sites/</code> to the server. No DNS work, no certificate work, no server access needed on your side.</p>
+      </li>
+    </ol>
+    <p class="note">Not comfortable with git? You can do it entirely in the browser: fork the repo, use <b>Add file → Create new file</b>, type <code>sites/yourname/index.html</code> as the path, paste your HTML, and open a pull request from the fork.</p>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <h2><span class="num">02</span>What passes review</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Name</h3>
+        <ul>
+          <li><code>^[a-z][a-z0-9-]{1,30}$</code> — lowercase, digits, hyphens</li>
+          <li>2–31 characters, starts with a letter</li>
+          <li>Reserved names are rejected: <code>www</code>, <code>admin</code>, <code>api</code>, <code>mail</code>, and existing club service names</li>
+          <li>One folder name per PR; renaming later means a new PR that deletes the old folder</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Content</h3>
+        <ul>
+          <li>Static files only, from the extension allowlist (no executables or archives)</li>
+          <li>25 MB and 2,000 files per site</li>
+          <li>No symlinks, no <code>..</code> paths</li>
+          <li>It is a public web page: nothing illegal, no phishing, no malware, nothing you would not put your name on</li>
+          <li>Club-appropriate — it is served under <code>dawgsec.com</code></li>
+        </ul>
+      </div>
+    </div>
+    <table style="margin-top:1.2rem">
+      <tr><th>you do</th><th>what happens</th></tr>
+      <tr><td>Open a PR adding <code>sites/name/</code></td><td><code>validate</code> runs: name, extensions, symlinks, size and file caps</td></tr>
+      <tr><td>A maintainer approves and merges</td><td>the deploy workflow syncs the whole <code>sites/</code> tree to the server</td></tr>
+      <tr><td>Push another commit to an open PR</td><td>it is re-validated; the merge is the deploy</td></tr>
+      <tr><td>Delete <code>sites/name/</code> and merge</td><td>your subdomain reverts to the fallback page — that is the takedown lever</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="mechanics">
+  <div class="wrap">
+    <h2><span class="num">03</span>How it works</h2>
+    <p>Each wildcard subdomain is rewritten to a folder: <code>yourname.page.dawgsec.com/a/b</code> serves <code>sites/yourname/a/b</code>, with the site's own <code>index.html</code> used for directory requests. Missing paths fall back to the club's placeholder page, so client-side-routed single-page apps should ship the entry document at the exact paths they link to. TLS is a wildcard certificate on the club's side — there is nothing certificate-related to do per site.</p>
+    <p>Deployment is all-or-nothing from the repo's point of view: the workflow validates every site, and only then syncs the tree. A failed validation never reaches the server.</p>
+    <div class="links">
+      <a href="https://github.com/DawgSecTeam/pages">repo</a>
+      <a href="https://github.com/DawgSecTeam/pages/blob/main/README.md">README</a>
+      <a href="https://github.com/DawgSecTeam/pages/blob/main/scripts/validate.py">validator</a>
+      <a href="https://github.com/DawgSecTeam/pages/blob/main/.github/PULL_REQUEST_TEMPLATE.md">PR checklist</a>
+      <a href="https://page.dawgsec.com/">page.dawgsec.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    DawgSec member pages · questions go to <a href="https://github.com/DawgSecTeam/pages/issues">the repo issues</a> or the club Discord.
+  </div>
+</footer>
+
 </body>
 </html>
