@@ -372,7 +372,7 @@
       else setTimeout(showOut, 380);
     })(t0);
     // hard guarantee: the readout lands even if animation frames are starved
-    setTimeout(showOut, 1600);
+    setTimeout(function () { el.textContent = cmd; showOut(); }, 1600);
   }
 
   // easter egg: type dawg anywhere
