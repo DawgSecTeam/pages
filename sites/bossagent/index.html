@@ -363,12 +363,16 @@
     el.textContent = cmd;
     showOut();
   } else {
-    var i = 0;
-    (function tick() {
-      el.textContent = cmd.slice(0, ++i);
-      if (i < cmd.length) setTimeout(tick, 110);
-      else setTimeout(showOut, 420);
-    })();
+    // time-based, not tick-based: background-tab timer throttling can't stall it
+    var t0 = performance.now();
+    (function frame(now) {
+      var n = Math.min(cmd.length, Math.floor((now - t0) / 110) + 1);
+      el.textContent = cmd.slice(0, n);
+      if (n < cmd.length) window.requestAnimationFrame(frame);
+      else setTimeout(showOut, 380);
+    })(t0);
+    // hard guarantee: the readout lands even if animation frames are starved
+    setTimeout(showOut, 1600);
   }
 
   // easter egg: type dawg anywhere
