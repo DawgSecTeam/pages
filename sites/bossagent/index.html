@@ -15,8 +15,8 @@
     --line: #1f242d;
     --line-soft: #181d25;
     --text: #d7dce3;
-    --dim: #8b94a3;
-    --faint: #5b6371;
+    --dim: #a3adbc;
+    --faint: #7c8595;
     --amber: #e0b354;
     --amber-dim: #a8853f;
     --up: #7dc98f;
@@ -43,6 +43,10 @@
   a { color: var(--amber); text-decoration: none; border-bottom: 1px solid rgba(224,179,84,0.3); transition: border-color .15s; }
   a:hover { border-color: var(--amber); }
   a:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+  code {
+    font-family: var(--mono); font-size: .86em; color: #e6c47e;
+    background: rgba(224,179,84,.08); padding: .1em .38em; border-radius: 3px;
+  }
 
   .wrap { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
 
@@ -50,13 +54,13 @@
   header.top {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.1rem 0; border-bottom: 1px solid var(--line-soft);
-    font-family: var(--mono); font-size: .78rem; letter-spacing: .04em;
+    font-family: var(--mono); font-size: .8rem; letter-spacing: .04em;
     color: var(--dim);
   }
   header.top .brand { color: var(--text); }
   header.top .brand b { color: var(--amber); font-weight: 600; }
   nav a { color: var(--dim); border: 0; margin-left: 1.4rem; }
-  nav a:hover { color: var(--amber); }
+  nav a:hover { color: var(--amber); border-bottom: 1px solid rgba(224,179,84,.5); }
 
   /* ---------- hero ---------- */
   .hero { padding: 4.5rem 0 3.5rem; }
@@ -87,8 +91,9 @@
   }
   @keyframes blink { 50% { opacity: 0; } }
   .who-out { color: var(--dim); margin-top: .4rem; }
-  .who-out .k { color: var(--faint); display: inline-block; width: 7.2rem; }
-  .who-out .v { color: var(--text); }
+  .who-out > div { display: grid; grid-template-columns: 7.2rem 1fr; gap: 0 .4rem; align-items: baseline; }
+  .who-out .k { color: var(--faint); }
+  .who-out .v { color: var(--text); min-width: 0; }
   .who-out .v em { color: var(--amber); font-style: normal; }
   .typed { overflow: hidden; }
 
@@ -120,9 +125,9 @@
   /* ---------- sections ---------- */
   section { padding: 3.4rem 0 1rem; }
   h2 {
-    font-family: var(--mono); font-size: .82rem; font-weight: 600;
+    font-family: var(--mono); font-size: .86rem; font-weight: 600;
     letter-spacing: .16em; text-transform: uppercase;
-    color: var(--amber-dim);
+    color: #c39a4b;
     display: flex; align-items: center; gap: .9rem;
     margin: 0 0 1.8rem;
   }
@@ -138,25 +143,25 @@
     counter-increment: r;
     position: relative;
     padding: .85rem 0 .85rem 3.4rem;
-    border-bottom: 1px solid var(--line-soft);
+    border-bottom: 1px solid #232935;
     color: var(--dim);
   }
   ol.rules li::before {
     content: counter(r, decimal-leading-zero);
     position: absolute; left: 0; top: .95rem;
     font-family: var(--mono); font-size: .78rem;
-    color: var(--amber-dim);
+    color: #c39a4b;
   }
   ol.rules li strong { color: var(--text); font-weight: 600; }
 
   /* ---------- project cards ---------- */
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 1.1rem; }
   .card {
-    position: relative;
+    position: relative; display: flex; flex-direction: column;
     background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 1.35rem 1.3rem 1.5rem;
+    padding: 1.35rem 1.3rem 1.25rem;
     transition: border-color .2s, transform .2s;
   }
   .card:hover { border-color: var(--amber-dim); transform: translateY(-2px); }
@@ -169,13 +174,16 @@
   .card::after { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; border-radius: 0 0 8px 0; }
   .card:hover::before, .card:hover::after { opacity: 1; }
   .card h3 {
-    font-family: var(--mono); font-size: .92rem; font-weight: 600;
-    margin: 0 0 .55rem; color: var(--text); letter-spacing: .01em;
+    font-family: var(--mono); font-size: 1rem; font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 .6rem; color: var(--text); letter-spacing: .01em;
   }
+  @media (min-width: 700px) { .card h3 { min-height: 3em; } }
   .card h3::before { content: "~/"; color: var(--amber-dim); }
-  .card p { margin: 0; font-size: .92rem; color: var(--dim); line-height: 1.6; }
+  .card p { margin: 0 0 1.1rem; font-size: .92rem; color: var(--dim); line-height: 1.6; }
   .card .tag {
-    display: inline-block; margin-top: .9rem;
+    display: block; margin-top: auto; padding-top: .75rem;
+    border-top: 1px solid var(--line-soft);
     font-family: var(--mono); font-size: .68rem; letter-spacing: .06em;
     color: var(--faint);
   }
@@ -186,8 +194,7 @@
     border-left: 2px solid var(--amber);
     background: var(--panel);
     border-radius: 0 8px 8px 0;
-    padding: 1.4rem 1.6rem;
-    max-width: 46rem;
+    padding: 1.5rem 1.7rem;
     color: var(--dim);
   }
   .coda strong { color: var(--text); }
@@ -201,9 +208,9 @@
   }
   footer .paw { color: var(--amber-dim); }
 
-  /* ---------- reveal ---------- */
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
-  .reveal.seen { opacity: 1; transform: none; }
+  /* ---------- reveal (progressive: no JS => fully visible) ---------- */
+  html.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s ease, transform .5s ease; }
+  html.js .reveal.seen { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .cursor { animation: none; }
@@ -211,8 +218,12 @@
   }
   @media (max-width: 640px) {
     .term-body { font-size: .78rem; min-height: 0; }
-    .who-out .k { width: 6rem; }
-    nav a { margin-left: .9rem; }
+    .who-out > div { grid-template-columns: 5.4rem 1fr; }
+    .hide-m { display: none; }
+    header.top { flex-direction: column; align-items: flex-start; gap: .5rem; }
+    nav a { margin-left: 0; margin-right: 1.1rem; }
+    nav { font-size: .74rem; }
+    .hero { padding: 2.6rem 0 2.2rem; }
   }
 </style>
 </head>
@@ -234,7 +245,7 @@
   <div class="term">
     <div class="term-bar">
       <div class="dot"></div><div class="dot"></div><div class="dot a"></div>
-      <span class="file">session — no logs leave this terminal</span>
+      <span class="file">session<span class="hide-m"> — no logs leave this terminal</span></span>
     </div>
     <div class="term-body">
       <div class="prompt-line"><span class="ps1">bossagent@dawgsec:~$</span> <span id="typed"></span><span class="cursor"></span></div>
@@ -255,7 +266,7 @@
 
   <div class="status-strip">
     <span class="pill">page <span class="up">▲ up</span></span>
-    <span class="pill">tls <span class="ok">wildcard, minted by our own nameserver</span></span>
+    <span class="pill">tls <span class="ok">wildcard, self-issued</span></span>
     <span class="pill">tracking <span class="up">none</span></span>
     <span class="pill">cookies <span class="up">zero</span></span>
     <span class="pill">secrets on this page <span class="up">zero</span></span>
@@ -336,6 +347,7 @@
 
 <script>
 (function () {
+  document.documentElement.classList.add("js");
   // hero: type `whoami`, then reveal the output
   var cmd = "whoami";
   var el = document.getElementById("typed");
@@ -368,12 +380,17 @@
   });
 
   // scroll reveals
+  var reveals = document.querySelectorAll(".reveal");
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (en.isIntersecting) { en.target.classList.add("seen"); io.unobserve(en.target); }
     });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(function (n) { io.observe(n); });
+  }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+  reveals.forEach(function (n) { io.observe(n); });
+  // safety net: nothing stays hidden if the observer never fires
+  setTimeout(function () {
+    reveals.forEach(function (n) { n.classList.add("seen"); });
+  }, 2500);
 
   // footer date = deploy date, from Last-Modified of this document
   try {
